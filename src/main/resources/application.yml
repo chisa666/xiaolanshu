@@ -1,0 +1,72 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: xiaolanshu
+  datasource:
+    url: ${DB_URL:jdbc:mysql://127.0.0.1:3306/xiaolanshu?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      database: ${REDIS_DATABASE:0}
+  sql:
+    init:
+      mode: never
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    root: INFO
+    com.quanxiaoha.xiaolanshu: INFO
+
+# 本地服务未启动时，基础入口仍可使用；真正运行对应教程微服务时再打开这些连接。
+spring.cloud.nacos.discovery.enabled: ${NACOS_DISCOVERY_ENABLED:false}
+spring.cloud.nacos.config.enabled: ${NACOS_CONFIG_ENABLED:false}
+rocketmq.name-server: ${ROCKETMQ_NAME_SERVER:127.0.0.1:9876}
+
+# 阿里云短信凭证：仅从运行环境读取，不写入源码。
+aliyun:
+  accessKeyId: ${ALIYUN_SMS_ACCESS_KEY_ID:}
+  accessKeySecret: ${ALIYUN_SMS_ACCESS_KEY_SECRET:}
+
+alarm:
+  type: ${ALARM_TYPE:mail}
+
+# Optional integrations are disabled unless explicitly configured.
+storage:
+  minio:
+    endpoint: ${MINIO_ENDPOINT:}
+    access-key: ${MINIO_ACCESS_KEY:}
+    secret-key: ${MINIO_SECRET_KEY:}
+    bucket-name: ${MINIO_BUCKET_NAME:}
+  aliyun-oss:
+    endpoint: ${ALIYUN_OSS_ENDPOINT:}
+    access-key: ${ALIYUN_OSS_ACCESS_KEY:}
+    secret-key: ${ALIYUN_OSS_SECRET_KEY:}
+    bucket-name: ${ALIYUN_OSS_BUCKET_NAME:}
+
+elasticsearch:
+  url: ${ELASTICSEARCH_URL:}
+
+canal:
+  host: ${CANAL_HOST:127.0.0.1}
+  port: ${CANAL_PORT:11111}
+  destination: ${CANAL_DESTINATION:example}
+  username: ${CANAL_USERNAME:}
+  password: ${CANAL_PASSWORD:}
+
+xxl:
+  job:
+    admin:
+      addresses: ${XXL_JOB_ADMIN_ADDRESSES:}
+    access-token: ${XXL_JOB_ACCESS_TOKEN:}

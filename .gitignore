@@ -1,0 +1,23 @@
+target/
+.idea/
+*.iml
+.m2repo/
+*.log
+
+# Local reference materials and generated worktrees are not project source.
+xiaohashu2/
+.reference-xiaohashu/
+pagemarkdown-markdown-batch-20260811-194454/
+
+# Local secrets and machine-specific configuration.
+.env
+.env.*
+!.env.example
+application-local.yml
+application-*.local.yml
+*.secret
+*.secrets
+
+# IDE and build output in nested modules.
+**/target/
+**/logs/
