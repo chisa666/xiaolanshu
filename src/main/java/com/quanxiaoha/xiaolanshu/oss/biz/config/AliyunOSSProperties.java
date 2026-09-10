@@ -1,0 +1,20 @@
+package com.quanxiaoha.xiaolanshu.oss.biz.config;
+
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+/**
+ * @author: chisa
+ * @url: www.quanxiaoha.com
+ * @description: 阿里云 OSS 配置项
+ **/
+@ConfigurationProperties(prefix = "storage.aliyun-oss")
+@Component
+@Data
+public class AliyunOSSProperties {
+    private String endpoint;
+    private String accessKey;
+    private String secretKey;
+}
+

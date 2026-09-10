@@ -1,0 +1,28 @@
+package com.quanxiaoha.xiaolanshu.comment.biz.model.bo;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * 评论热度
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class CommentHeatBO {
+    /**
+     * 评论 ID
+     */
+    private Long id;
+
+    private Long noteId;
+
+    /**
+     * 热度值
+     */
+    private Double heat;
+}
+

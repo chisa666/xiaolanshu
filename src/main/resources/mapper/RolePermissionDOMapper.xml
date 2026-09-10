@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.quanxiaoha.xiaolanshu.auth.domain.mapper.RolePermissionDOMapper">
+    <select id="selectByRoleIds" resultType="com.quanxiaoha.xiaolanshu.auth.domain.dataobject.RolePermissionDO">
+        select * from t_role_permission_rel
+        where is_deleted = b'0' and role_id in
+        <foreach collection="roleIds" item="roleId" open="(" separator="," close=")">
+            #{roleId}
+        </foreach>
+    </select>
+</mapper>
