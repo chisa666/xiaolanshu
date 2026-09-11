@@ -13,22 +13,31 @@ import java.util.Set;
 
 public class JsonUtils {
 
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+    private static volatile ObjectMapper OBJECT_MAPPER = createDefaultObjectMapper();
 
-    static {
-        OBJECT_MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        OBJECT_MAPPER.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        OBJECT_MAPPER.registerModules(new JavaTimeModule()); // 解决 LocalDateTime 的序列化问题
+    private static ObjectMapper createDefaultObjectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        objectMapper.registerModules(new JavaTimeModule());
+        return objectMapper;
     }
 
     /**
-     *  将对象转换为 JSON 字符串
-     * @param obj
-     * @return
+     * 使用 Spring Boot 个性化配置的 ObjectMapper 初始化 JSON 工具类。
+     */
+    public static void init(ObjectMapper objectMapper) {
+        if (objectMapper != null) {
+            OBJECT_MAPPER = objectMapper;
+        }
+    }
+
+    /**
+     * 将对象转换为 JSON 字符串。
      */
     @SneakyThrows
     public static String toJsonString(Object obj) {
-       return OBJECT_MAPPER.writeValueAsString(obj);
+        return OBJECT_MAPPER.writeValueAsString(obj);
     }
 
     @SneakyThrows
@@ -65,4 +74,3 @@ public class JsonUtils {
     }
 
 }
-
