@@ -53,7 +53,7 @@ public class KeyValueRpcService {
         Response<?> response = keyValueFeignApi.batchAddCommentContent(batchAddCommentContentReqDTO);
 
         // 若返参中 success 为 false, 则主动抛出异常，以便调用层回滚事务
-        if (!response.isSuccess()) {
+        if (Objects.isNull(response) || !response.isSuccess()) {
             throw new RuntimeException("批量保存评论内容失败");
         }
 
@@ -73,7 +73,7 @@ public class KeyValueRpcService {
 
         Response<List<FindCommentContentRspDTO>> response = keyValueFeignApi.batchFindCommentContent(batchFindCommentContentReqDTO);
 
-        if (!response.isSuccess() || Objects.isNull(response.getData()) || CollUtil.isEmpty(response.getData())) {
+        if (Objects.isNull(response) || !response.isSuccess() || Objects.isNull(response.getData()) || CollUtil.isEmpty(response.getData())) {
             return null;
         }
         return response.getData();
@@ -95,7 +95,7 @@ public class KeyValueRpcService {
         // 调用 KV 存储服务
         Response<?> response = keyValueFeignApi.deleteCommentContent(deleteCommentContentReqDTO);
 
-        if (!response.isSuccess()) {
+        if (Objects.isNull(response) || !response.isSuccess()) {
             throw new RuntimeException("删除评论内容失败");
         }
 

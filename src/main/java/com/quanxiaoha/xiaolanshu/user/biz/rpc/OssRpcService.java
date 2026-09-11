@@ -6,6 +6,8 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Objects;
+
 /**
  * @author: chisa
  * @version: v1.0.0
@@ -21,7 +23,7 @@ public class OssRpcService {
         // 调用对象存储服务上传文件
         Response<?> response = fileFeignApi.uploadFile(file);
 
-        if (!response.isSuccess()) {
+        if (Objects.isNull(response) || !response.isSuccess()) {
             return null;
         }
 

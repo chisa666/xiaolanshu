@@ -34,7 +34,7 @@ public class UserRpcService {
 
         Response<FindUserByIdRspDTO> response = userFeignApi.findById(findUserByIdReqDTO);
 
-        if (!response.isSuccess() || Objects.isNull(response.getData())) {
+        if (Objects.isNull(response) || !response.isSuccess() || Objects.isNull(response.getData())) {
             return null;
         }
 
