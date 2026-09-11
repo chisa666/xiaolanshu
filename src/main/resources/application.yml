@@ -74,3 +74,8 @@ xxl:
     enabled: ${XXL_JOB_ENABLED:false}
     admin-addresses: ${XXL_JOB_ADMIN_ADDRESSES:}
     access-token: ${XXL_JOB_ACCESS_TOKEN:}
+
+leaf:
+  segment-enabled: ${LEAF_SEGMENT_ENABLED:false}
+  snowflake-enabled: ${LEAF_SNOWFLAKE_ENABLED:true}
+  snowflake-worker-id: ${LEAF_SNOWFLAKE_WORKER_ID:0}
