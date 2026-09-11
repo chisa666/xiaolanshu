@@ -3,6 +3,7 @@ package com.quanxiaoha.xiaolanshu.oss.biz.factory;
 import com.quanxiaoha.xiaolanshu.oss.biz.strategy.FileStrategy;
 import com.quanxiaoha.xiaolanshu.oss.biz.strategy.impl.AliyunOSSFileStrategy;
 import com.quanxiaoha.xiaolanshu.oss.biz.strategy.impl.MinioFileStrategy;
+import com.quanxiaoha.xiaolanshu.oss.biz.strategy.impl.UnavailableFileStrategy;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -18,7 +19,7 @@ import org.springframework.context.annotation.Configuration;
 @RefreshScope
 public class FileStrategyFactory {
 
-    @Value("${storage.type}")
+    @Value("${storage.type:none}")
     private String strategyType;
 
     @Bean
@@ -30,7 +31,7 @@ public class FileStrategyFactory {
             return new AliyunOSSFileStrategy();
         }
 
-        throw new IllegalArgumentException("不可用的存储类型");
+        return new UnavailableFileStrategy(strategyType);
     }
 
 }

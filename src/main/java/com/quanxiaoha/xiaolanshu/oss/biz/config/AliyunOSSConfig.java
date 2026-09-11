@@ -5,6 +5,7 @@ import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.common.auth.CredentialsProviderFactory;
 import com.aliyun.oss.common.auth.DefaultCredentialProvider;
 import jakarta.annotation.Resource;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * @description: 阿里云 Client 配置
  **/
 @Configuration
+@ConditionalOnProperty(prefix = "storage.aliyun-oss", name = "enabled", havingValue = "true")
 public class AliyunOSSConfig {
 
     @Resource

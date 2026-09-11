@@ -2,6 +2,7 @@ package com.quanxiaoha.xiaolanshu.oss.biz.config;
 
 import io.minio.MinioClient;
 import jakarta.annotation.Resource;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @description: TODO
  **/
 @Configuration
+@ConditionalOnProperty(prefix = "storage.minio", name = "enabled", havingValue = "true")
 public class MinioConfig {
 
     @Resource

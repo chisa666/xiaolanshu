@@ -16,6 +16,8 @@ public class CanalProperties {
 
     public static final String PREFIX = "canal";
 
+    private boolean enabled;
+
     /**
      * Canal 链接地址
      */

@@ -7,6 +7,8 @@ import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.net.URI;
+
 /**
  * @author: chisa
  * @version: v1.0.0
@@ -24,12 +26,15 @@ public class ElasticsearchRestHighLevelClient {
     @Bean
     public RestHighLevelClient restHighLevelClient() {
         String address = elasticsearchProperties.getAddress();
-
-        String[] addressArr = address.split(COLON);
-        // IP 地址
-        String host = addressArr[0];
-        // 端口
-        int port = Integer.parseInt(addressArr[1]);
+        if (address == null || address.isBlank()) {
+            address = "127.0.0.1:9200";
+        }
+        URI uri = URI.create(address.contains("://") ? address : HTTP + "://" + address);
+        String host = uri.getHost();
+        int port = uri.getPort() > 0 ? uri.getPort() : 9200;
+        if (host == null || host.isBlank()) {
+            throw new IllegalStateException("elasticsearch.address 未配置为 host:port");
+        }
 
         HttpHost httpHost = new HttpHost(host, port, HTTP);
 

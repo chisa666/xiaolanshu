@@ -3,6 +3,7 @@ package com.quanxiaoha.xiaolanshu.search.canal;
 import com.alibaba.otter.canal.client.CanalConnector;
 import com.alibaba.otter.canal.client.CanalConnectors;
 import jakarta.annotation.Resource;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +19,7 @@ import java.util.Objects;
  **/
 @Component
 @Slf4j
+@ConditionalOnProperty(prefix = "canal", name = "enabled", havingValue = "true")
 public class CanalClient implements DisposableBean {
 
     @Resource
@@ -33,7 +35,10 @@ public class CanalClient implements DisposableBean {
     public CanalConnector getCanalConnector() {
         // Canal 链接地址
         String address = canalProperties.getAddress();
-        String[] addressArr = address.split(":");
+        if (address == null || !address.contains(":")) {
+            throw new IllegalStateException("Canal 已启用，但 canal.address 未配置为 host:port");
+        }
+        String[] addressArr = address.split(":", 2);
         // IP 地址
         String host = addressArr[0];
         // 端口

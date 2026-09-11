@@ -44,29 +44,33 @@ alarm:
 
 # Optional integrations are disabled unless explicitly configured.
 storage:
+  type: ${STORAGE_TYPE:none}
   minio:
+    enabled: ${MINIO_ENABLED:false}
     endpoint: ${MINIO_ENDPOINT:}
     access-key: ${MINIO_ACCESS_KEY:}
     secret-key: ${MINIO_SECRET_KEY:}
     bucket-name: ${MINIO_BUCKET_NAME:}
   aliyun-oss:
+    enabled: ${ALIYUN_OSS_ENABLED:false}
     endpoint: ${ALIYUN_OSS_ENDPOINT:}
     access-key: ${ALIYUN_OSS_ACCESS_KEY:}
     secret-key: ${ALIYUN_OSS_SECRET_KEY:}
     bucket-name: ${ALIYUN_OSS_BUCKET_NAME:}
 
 elasticsearch:
-  url: ${ELASTICSEARCH_URL:}
+  address: ${ELASTICSEARCH_ADDRESS:127.0.0.1:9200}
 
 canal:
-  host: ${CANAL_HOST:127.0.0.1}
-  port: ${CANAL_PORT:11111}
+  enabled: ${CANAL_ENABLED:false}
+  address: ${CANAL_ADDRESS:127.0.0.1:11111}
   destination: ${CANAL_DESTINATION:example}
   username: ${CANAL_USERNAME:}
   password: ${CANAL_PASSWORD:}
+  subscribe: ${CANAL_SUBSCRIBE:.*\..*}
 
 xxl:
   job:
-    admin:
-      addresses: ${XXL_JOB_ADMIN_ADDRESSES:}
+    enabled: ${XXL_JOB_ENABLED:false}
+    admin-addresses: ${XXL_JOB_ADMIN_ADDRESSES:}
     access-token: ${XXL_JOB_ACCESS_TOKEN:}

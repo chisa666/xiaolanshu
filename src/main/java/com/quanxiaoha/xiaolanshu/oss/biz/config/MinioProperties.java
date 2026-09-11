@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 public class MinioProperties {
+    private boolean enabled;
     private String endpoint;
     private String accessKey;
     private String secretKey;

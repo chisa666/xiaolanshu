@@ -6,6 +6,7 @@ import com.alibaba.otter.canal.protocol.Message;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.concurrent.TimeUnit;
  **/
 @Component
 @Slf4j
+@ConditionalOnBean(CanalConnector.class)
 public class CanalSchedule implements Runnable {
 
     @Resource

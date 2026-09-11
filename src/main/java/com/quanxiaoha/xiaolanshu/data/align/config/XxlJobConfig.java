@@ -5,6 +5,7 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
 /**
  * @author: chisa
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Configuration
 @Slf4j
+@ConditionalOnProperty(prefix = "xxl.job", name = "enabled", havingValue = "true")
 public class XxlJobConfig {
 
     @Resource
