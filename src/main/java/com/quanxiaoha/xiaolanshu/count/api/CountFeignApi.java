@@ -6,6 +6,7 @@ import com.quanxiaoha.xiaolanshu.count.dto.FindUserCountsByIdReqDTO;
 import com.quanxiaoha.xiaolanshu.count.dto.FindUserCountsByIdRspDTO;
 import com.quanxiaoha.xiaolanshu.count.dto.FindNoteCountsByIdsReqDTO;
 import com.quanxiaoha.xiaolanshu.count.dto.FindNoteCountsByIdRspDTO;
+import com.quanxiaoha.xiaolanshu.count.fallback.CountFeignApiFallback;
 import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @version: v1.0.0
  * @description: 计数服务 Feign 接口
  **/
-@FeignClient(name = ApiConstants.SERVICE_NAME)
+@FeignClient(name = ApiConstants.SERVICE_NAME, fallback = CountFeignApiFallback.class)
 public interface CountFeignApi {
 
     String PREFIX = "/count";
