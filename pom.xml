@@ -31,6 +31,8 @@
         <elasticsearch.version>7.17.18</elasticsearch.version>
         <buffertrigger.version>0.2.21</buffertrigger.version>
         <canal.version>1.1.7</canal.version>
+        <curator.version>5.5.0</curator.version>
+        <zookeeper.version>3.8.4</zookeeper.version>
     </properties>
 
     <dependencyManagement>
@@ -130,6 +132,22 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>33.0.0-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>${zookeeper.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.github.phantomthief</groupId>

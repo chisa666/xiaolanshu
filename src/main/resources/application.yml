@@ -86,8 +86,10 @@ table:
 mq-consumer:
   follow-unfollow:
     rate-limit: ${FOLLOW_UNFOLLOW_RATE_LIMIT:100}
-
 leaf:
   segment-enabled: ${LEAF_SEGMENT_ENABLED:false}
   snowflake-enabled: ${LEAF_SNOWFLAKE_ENABLED:true}
+  snowflake-zookeeper-enabled: ${LEAF_SNOWFLAKE_ZOOKEEPER_ENABLED:false}
+  snowflake-zk-address: ${LEAF_SNOWFLAKE_ZK_ADDRESS:127.0.0.1:2181}
+  snowflake-port: ${LEAF_SNOWFLAKE_PORT:2222}
   snowflake-worker-id: ${LEAF_SNOWFLAKE_WORKER_ID:0}
