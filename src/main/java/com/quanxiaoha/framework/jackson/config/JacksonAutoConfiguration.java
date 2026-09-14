@@ -16,7 +16,6 @@ import com.quanxiaoha.framework.common.constant.DateConstants;
 import com.quanxiaoha.framework.common.util.JsonUtils;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -31,7 +30,6 @@ import java.util.TimeZone;
 public class JacksonAutoConfiguration {
 
     @Bean(name = "frameworkObjectMapper")
-    @Primary
     public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
