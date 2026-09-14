@@ -15,6 +15,10 @@ spring:
       port: ${REDIS_PORT:6379}
       password: ${REDIS_PASSWORD:}
       database: ${REDIS_DATABASE:0}
+  cassandra:
+    keyspace-name: ${CASSANDRA_KEYSPACE_NAME:xiaolanshu}
+    contact-points: ${CASSANDRA_CONTACT_POINTS:127.0.0.1}
+    port: ${CASSANDRA_PORT:9042}
   sql:
     init:
       mode: never
@@ -60,6 +64,7 @@ storage:
 
 elasticsearch:
   address: ${ELASTICSEARCH_ADDRESS:127.0.0.1:9200}
+  hotUpdateExtDict: ${ELASTICSEARCH_HOT_UPDATE_EXT_DICT:}
 
 canal:
   enabled: ${CANAL_ENABLED:false}
@@ -74,6 +79,13 @@ xxl:
     enabled: ${XXL_JOB_ENABLED:false}
     admin-addresses: ${XXL_JOB_ADMIN_ADDRESSES:}
     access-token: ${XXL_JOB_ACCESS_TOKEN:}
+
+table:
+  shards: ${TABLE_SHARDS:3}
+
+mq-consumer:
+  follow-unfollow:
+    rate-limit: ${FOLLOW_UNFOLLOW_RATE_LIMIT:100}
 
 leaf:
   segment-enabled: ${LEAF_SEGMENT_ENABLED:false}
