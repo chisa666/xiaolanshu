@@ -26,7 +26,7 @@ import java.util.Objects;
  */
 @Component
 @Slf4j
-@RocketMQMessageListener(consumerGroup = "xiaohashu_group_" + MQConstants.TOPIC_COLLECT_OR_UN_COLLECT, // Group 组
+@RocketMQMessageListener(consumerGroup = "xiaolanshu_group_" + MQConstants.TOPIC_COLLECT_OR_UN_COLLECT, // Group 组
         topic = MQConstants.TOPIC_COLLECT_OR_UN_COLLECT, // 消费的主题 Topic
         consumeMode = ConsumeMode.ORDERLY// 设置为顺序消费模式
 )

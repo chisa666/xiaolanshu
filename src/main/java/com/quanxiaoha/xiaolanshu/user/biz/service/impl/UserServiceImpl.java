@@ -152,10 +152,10 @@ public class UserServiceImpl implements UserService {
         }
 
         // 小哈书号
-        String xiaohashuId = updateUserInfoReqVO.getXiaolanshuId();
-        if (StringUtils.isNotBlank(xiaohashuId)) {
-            Preconditions.checkArgument(ParamUtils.checkXiaohashuId(xiaohashuId), ResponseCodeEnum.XIAOLANSHU_ID_VALID_FAIL.getErrorMessage());
-            userDO.setXiaolanshuId(xiaohashuId);
+        String xiaolanshuId = updateUserInfoReqVO.getXiaolanshuId();
+        if (StringUtils.isNotBlank(xiaolanshuId)) {
+            Preconditions.checkArgument(ParamUtils.checkXiaolanshuId(xiaolanshuId), ResponseCodeEnum.XIAOLANSHU_ID_VALID_FAIL.getErrorMessage());
+            userDO.setXiaolanshuId(xiaolanshuId);
             needUpdate = true;
         }
 
@@ -276,10 +276,10 @@ public class UserServiceImpl implements UserService {
 
         // 否则注册新用户
         // 获取全局自增的小哈书 ID
-        //Long xiaohashuId = redisTemplate.opsForValue().increment(RedisKeyConstants.XIAOHASHU_ID_GENERATOR_KEY);
+        //Long xiaolanshuId = redisTemplate.opsForValue().increment(RedisKeyConstants.XIAOHASHU_ID_GENERATOR_KEY);
 
         // RPC: 调用分布式 ID 生成服务生成小哈书 ID
-        String xiaohashuId = distributedIdGeneratorRpcService.getXiaolanshuId();
+        String xiaolanshuId = distributedIdGeneratorRpcService.getXiaolanshuId();
 
         //RPC: 调用分布式 ID 生成服务生成用户  ID
         String userIdStr  = distributedIdGeneratorRpcService.getUserId();
@@ -288,8 +288,8 @@ public class UserServiceImpl implements UserService {
         UserDO userDO = UserDO.builder()
                 .id(userId)
                 .phone(phone)
-                .xiaolanshuId(xiaohashuId) // 自动生成小红书号 ID
-                .nickname("小红薯" + xiaohashuId) // 自动生成昵称, 如：小红薯10000
+                .xiaolanshuId(xiaolanshuId) // 自动生成小红书号 ID
+                .nickname("小红薯" + xiaolanshuId) // 自动生成昵称, 如：小红薯10000
                 .status(StatusEnum.ENABLE.getValue()) // 状态为启用
                 .createTime(LocalDateTime.now())
                 .updateTime(LocalDateTime.now())

@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
  */
 
 @Component
-@RocketMQMessageListener(consumerGroup = "xiaohashu_group_first_reply_comment_id" + MQConstants.TOPIC_COUNT_NOTE_COMMENT, // Group 组
+@RocketMQMessageListener(consumerGroup = "xiaolanshu_group_first_reply_comment_id" + MQConstants.TOPIC_COUNT_NOTE_COMMENT, // Group 组
         topic = MQConstants.TOPIC_COUNT_NOTE_COMMENT // 主题 Topic
 )
 @Slf4j

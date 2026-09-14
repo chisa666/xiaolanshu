@@ -35,7 +35,7 @@ import java.util.Set;
  **/
 @Component
 @Slf4j
-@RocketMQMessageListener(consumerGroup = "xiaohashu_group_" + MQConstants.TOPIC_DELETE_COMMENT, // Group
+@RocketMQMessageListener(consumerGroup = "xiaolanshu_group_" + MQConstants.TOPIC_DELETE_COMMENT, // Group
         topic = MQConstants.TOPIC_DELETE_COMMENT // 消费的主题 Topic
         )
 public class DeleteCommentConsumer implements RocketMQListener<String>  {

@@ -11,8 +11,14 @@ public final class ParamUtils {
         return com.quanxiaoha.framework.common.util.ParamUtils.checkNickname(nickname);
     }
 
-    public static boolean checkXiaohashuId(String xiaolanshuId) {
+    public static boolean checkXiaolanshuId(String xiaolanshuId) {
         return com.quanxiaoha.framework.common.util.ParamUtils.checkxiaolanshuId(xiaolanshuId);
+    }
+
+    /** @deprecated use checkXiaolanshuId */
+    @Deprecated
+    public static boolean checkXiaohashuId(String xiaolanshuId) {
+        return checkXiaolanshuId(xiaolanshuId);
     }
 
     public static boolean checkLength(String value, int length) {

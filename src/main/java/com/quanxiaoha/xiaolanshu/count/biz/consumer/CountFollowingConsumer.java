@@ -24,7 +24,7 @@ import java.util.Objects;
  * 统计关注数
  */
 @Component
-@RocketMQMessageListener(consumerGroup = "xiaohashu_group_" + MQConstants.TOPIC_COUNT_FOLLOWING, // Group 组
+@RocketMQMessageListener(consumerGroup = "xiaolanshu_group_" + MQConstants.TOPIC_COUNT_FOLLOWING, // Group 组
         topic = MQConstants.TOPIC_COUNT_FOLLOWING // 主题 Topic
 )
 @Slf4j
