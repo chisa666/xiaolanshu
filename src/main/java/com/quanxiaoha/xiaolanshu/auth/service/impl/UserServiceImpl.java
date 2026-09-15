@@ -59,6 +59,7 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Response<String> loginAndRegister(UserLoginReqVO userLoginReqVO) {
         String phone = userLoginReqVO.getPhone();
         LoginTypeEnum loginTypeEnum = LoginTypeEnum.valueOf(userLoginReqVO.getType());
