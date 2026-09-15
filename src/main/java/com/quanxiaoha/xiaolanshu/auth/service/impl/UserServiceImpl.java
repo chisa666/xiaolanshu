@@ -3,7 +3,6 @@ package com.quanxiaoha.xiaolanshu.auth.service.impl;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.Lists;
 import com.quanxiaoha.framework.common.enums.DeletedEnum;
 import com.quanxiaoha.framework.common.enums.StatusEnum;
 import com.quanxiaoha.framework.common.exception.BizException;
@@ -145,9 +144,8 @@ public class UserServiceImpl implements UserService {
         userRoleDOMapper.insert(userRoleDO);
 
         // 将该用户的角色 ID 存入 Redis 中
-        List<Long> roles = Lists.newArrayList();
-        roles.add(RoleConstants.COMMON_USER_ROLE_ID);
-        String userRolesKey = RedisKeyConstants.buildUserRoleKey(phone);
+        List<String> roles = List.of("common_user");
+        String userRolesKey = RedisKeyConstants.buildUserRoleKey(userId);
         redisTemplate.opsForValue().set(userRolesKey, JsonUtils.toJsonString(roles));
 
         return userId;
