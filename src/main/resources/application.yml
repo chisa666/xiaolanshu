@@ -42,6 +42,13 @@ rocketmq.name-server: ${ROCKETMQ_NAME_SERVER:127.0.0.1:9876}
 aliyun:
   accessKeyId: ${ALIYUN_SMS_ACCESS_KEY_ID:}
   accessKeySecret: ${ALIYUN_SMS_ACCESS_KEY_SECRET:}
+  sms:
+    provider: ${ALIYUN_SMS_PROVIDER:dysmsapi}
+    sign-name: ${ALIYUN_SMS_SIGN_NAME:阿里云短信测试}
+    template-code: ${ALIYUN_SMS_TEMPLATE_CODE:SMS_154950909}
+    validity-minutes: ${ALIYUN_SMS_VALIDITY_MINUTES:3}
+    connect-timeout-millis: ${ALIYUN_SMS_CONNECT_TIMEOUT_MILLIS:5000}
+    read-timeout-millis: ${ALIYUN_SMS_READ_TIMEOUT_MILLIS:10000}
 
 alarm:
   type: ${ALARM_TYPE:mail}

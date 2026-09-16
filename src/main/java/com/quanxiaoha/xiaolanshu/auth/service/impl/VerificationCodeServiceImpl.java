@@ -8,6 +8,7 @@ import com.quanxiaoha.xiaolanshu.auth.enums.ResponseCodeEnum;
 import com.quanxiaoha.xiaolanshu.auth.model.vo.verificationcode.SendVerificationCodeReqVO;
 import com.quanxiaoha.xiaolanshu.auth.service.VerificationCodeService;
 import com.quanxiaoha.xiaolanshu.auth.sms.AliyunSmsHelper;
+import com.quanxiaoha.xiaolanshu.auth.sms.AliyunSmsProperties;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -26,6 +27,8 @@ public class VerificationCodeServiceImpl implements VerificationCodeService {
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
     @Resource
     private AliyunSmsHelper aliyunSmsHelper;
+    @Resource
+    private AliyunSmsProperties aliyunSmsProperties;
 
     /**
      * 发送短信验证码
@@ -54,15 +57,11 @@ public class VerificationCodeServiceImpl implements VerificationCodeService {
         log.info("==> 手机号: {}, 已生成验证码：【{}】", phone, verificationCode);
 
         // 调用第三方短信发送服务
-        threadPoolTaskExecutor.submit(() -> {
-            String signName = "阿里云短信测试";
-            String templateCode = "SMS_154950909";
-            String templateParam = String.format("{\"code\":\"%s\"}", verificationCode);
-            aliyunSmsHelper.sendMessage(signName, templateCode, phone, templateParam);
-        });
+        threadPoolTaskExecutor.submit(() -> aliyunSmsHelper.sendMessage(phone, verificationCode));
 
-        // 存储验证码到 redis, 并设置过期时间为 3 分钟
-        redisTemplate.opsForValue().set(key, verificationCode, 3, TimeUnit.MINUTES);
+        // 存储验证码到 Redis，并设置有效期
+        redisTemplate.opsForValue().set(key, verificationCode,
+                aliyunSmsProperties.getValidityMinutes(), TimeUnit.MINUTES);
 
         return Response.success();
     }

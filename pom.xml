@@ -214,6 +214,11 @@
         </dependency>
         <dependency>
             <groupId>com.aliyun</groupId>
+            <artifactId>dypnsapi20170525</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun</groupId>
             <artifactId>tea-openapi</artifactId>
             <version>0.3.9</version>
         </dependency>
