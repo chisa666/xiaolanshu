@@ -1,5 +1,30 @@
 package com.quanxiaoha.xiaolanshu.data.align.domain.mapper;
 
-/** Compatibility name used by the incremental MQ consumer examples. */
-public interface InsertMapper extends InsertRecordMapper {
+import org.apache.ibatis.annotations.Param;
+
+/**
+ * 添加记录
+ */
+public interface InsertMapper {
+
+    /**
+     * 笔记点赞数：计数变更
+     */
+    void insert2DataAlignNoteLikeCountTempTable(@Param("tableNameSuffix") String tableNameSuffix, @Param("noteId") Long noteId);
+
+    /**
+     * 用户获得的点赞数：计数变更
+     */
+    void insert2DataAlignUserLikeCountTempTable(@Param("tableNameSuffix") String tableNameSuffix, @Param("userId") Long userId);
+
+    void insert2DataAlignNoteCollectCountTempTable(@Param("tableNameSuffix") String tableNameSuffix, @Param("noteId") Long noteId);
+
+    void insert2DataAlignUserCollectCountTempTable(@Param("tableNameSuffix") String tableNameSuffix, @Param("userId") Long userId);
+
+    void insert2DataAlignUserNotePublishCountTempTable(@Param("tableNameSuffix") String tableNameSuffix, @Param("userId") Long userId);
+
+    void insert2DataAlignUserFollowingCountTempTable(@Param("tableNameSuffix") String tableNameSuffix, @Param("userId") Long userId);
+
+    void insert2DataAlignUserFansCountTempTable(@Param("tableNameSuffix") String tableNameSuffix, @Param("userId") Long userId);
+
 }

@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import cn.dev33.satoken.reactor.spring.SaTokenContextRegister;
 import org.springframework.cloud.gateway.config.GatewayAutoConfiguration;
 import org.springframework.cloud.gateway.config.GatewayClassPathWarningAutoConfiguration;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication(exclude = {GatewayAutoConfiguration.class, GatewayClassPathWarningAutoConfiguration.class, SaTokenContextRegister.class},
         excludeName = {
@@ -19,6 +20,7 @@ import org.springframework.cloud.gateway.config.GatewayClassPathWarningAutoConfi
         "org.springframework.cloud.gateway.config.GatewayReactiveLoadBalancerClientAutoConfiguration"
 })
 @MapperScan("com.quanxiaoha.xiaolanshu.data.align.domain.mapper")
+@EnableFeignClients(basePackages = "com.quanxiaoha.xiaolanshu")
 public class xiaolanshuDataAlignApplication {
 
     public static void main(String[] args) {
