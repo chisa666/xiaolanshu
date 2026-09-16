@@ -4,6 +4,8 @@ import com.quanxiaoha.framework.common.response.Response;
 import com.quanxiaoha.xiaolanshu.kv.biz.service.NoteContentService;
 import com.quanxiaoha.xiaolanshu.kv.dto.req.AddNoteContentReqDTO;
 import com.quanxiaoha.xiaolanshu.kv.dto.req.DeleteNoteContentReqDTO;
+import com.quanxiaoha.xiaolanshu.kv.dto.req.FindNoteContentReqDTO;
+import com.quanxiaoha.xiaolanshu.kv.dto.rsp.FindNoteContentRspDTO;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -28,6 +30,11 @@ public class NoteContentController {
     @PostMapping(value = "/note/content/add")
     public Response<?> addNoteContent(@Validated @RequestBody AddNoteContentReqDTO addNoteContentReqDTO) {
         return noteContentService.addNoteContent(addNoteContentReqDTO);
+    }
+
+    @PostMapping(value = "/note/content/find")
+    public Response<FindNoteContentRspDTO> findNoteContent(@Validated @RequestBody FindNoteContentReqDTO req) {
+        return noteContentService.findNoteContent(req);
     }
 
     @PostMapping(value = "/note/content/delete")

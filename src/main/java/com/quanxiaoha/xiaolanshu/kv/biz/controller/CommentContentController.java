@@ -4,6 +4,7 @@ import com.quanxiaoha.framework.biz.operationlog.aspect.ApiOperationLog;
 import com.quanxiaoha.framework.common.response.Response;
 import com.quanxiaoha.xiaolanshu.kv.biz.service.CommentContentService;
 import com.quanxiaoha.xiaolanshu.kv.dto.req.BatchAddCommentContentReqDTO;
+import com.quanxiaoha.xiaolanshu.kv.dto.req.BatchFindCommentContentReqDTO;
 import com.quanxiaoha.xiaolanshu.kv.dto.req.DeleteCommentContentReqDTO;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +31,12 @@ public class CommentContentController {
     @ApiOperationLog(description = "批量存储评论内容")
     public Response<?> batchAddCommentContent(@Validated @RequestBody BatchAddCommentContentReqDTO batchAddCommentContentReqDTO) {
         return commentContentService.batchAddCommentContent(batchAddCommentContentReqDTO);
+    }
+
+    @PostMapping(value = "/comment/content/batchFind")
+    @ApiOperationLog(description = "批量查询评论内容")
+    public Response<?> batchFindCommentContent(@Validated @RequestBody BatchFindCommentContentReqDTO req) {
+        return commentContentService.batchFindCommentContent(req);
     }
 
     @PostMapping(value = "/comment/content/delete")
