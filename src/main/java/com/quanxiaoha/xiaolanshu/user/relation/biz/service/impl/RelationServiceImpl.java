@@ -20,6 +20,8 @@ import com.quanxiaoha.xiaolanshu.user.relation.biz.enums.ResponseCodeEnum;
 import com.quanxiaoha.xiaolanshu.user.relation.biz.model.dto.FollowUserMqDTO;
 import com.quanxiaoha.xiaolanshu.user.relation.biz.model.dto.UnfollowUserMqDTO;
 import com.quanxiaoha.xiaolanshu.user.relation.biz.model.vo.*;
+import com.quanxiaoha.xiaolanshu.count.dto.FindUserCountsByIdRspDTO;
+import com.quanxiaoha.xiaolanshu.user.relation.biz.rpc.CountRpcService;
 import com.quanxiaoha.xiaolanshu.user.relation.biz.rpc.UserRpcService;
 import com.quanxiaoha.xiaolanshu.user.relation.biz.service.RelationService;
 import jakarta.annotation.Resource;
@@ -42,14 +44,19 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
 public class RelationServiceImpl implements RelationService {
     @Resource
     private UserRpcService userRpcService;
+    @Resource
+    private CountRpcService countRpcService;
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
     @Resource
@@ -502,18 +509,27 @@ public class RelationServiceImpl implements RelationService {
         // RPC: 批量查询用户信息
         List<FindUserByIdRspDTO> findUserByIdRspDTOS = userRpcService.findByIds(userIds);
 
-        // TODO RPC: 批量查询用户的计数数据（笔记总数、粉丝总数）
-
         // 若不为空，DTO 转 VO
         if (CollUtil.isNotEmpty(findUserByIdRspDTOS)) {
+            Map<Long, FindUserCountsByIdRspDTO> userCountMap = findUserByIdRspDTOS.stream()
+                    .map(FindUserByIdRspDTO::getId)
+                    .filter(Objects::nonNull)
+                    .map(countRpcService::findUserCountById)
+                    .filter(Objects::nonNull)
+                    .filter(counts -> Objects.nonNull(counts.getUserId()))
+                    .collect(Collectors.toMap(FindUserCountsByIdRspDTO::getUserId, Function.identity(), (left, right) -> left));
+
             findFansUserRspVOS = findUserByIdRspDTOS.stream()
-                    .map(dto -> FindFansUserRspVO.builder()
-                            .userId(dto.getId())
-                            .avatar(dto.getAvatar())
-                            .nickname(dto.getNickName())
-                            .noteTotal(0L) // TODO: 这块的数据暂无，后续补充
-                            .fansTotal(0L) // TODO: 这块的数据暂无，后续补充
-                            .build())
+                    .map(dto -> {
+                        FindUserCountsByIdRspDTO counts = userCountMap.get(dto.getId());
+                        return FindFansUserRspVO.builder()
+                                .userId(dto.getId())
+                                .avatar(dto.getAvatar())
+                                .nickname(dto.getNickName())
+                                .noteTotal(counts == null || counts.getNoteTotal() == null ? 0L : counts.getNoteTotal())
+                                .fansTotal(counts == null || counts.getFansTotal() == null ? 0L : counts.getFansTotal())
+                                .build();
+                    })
                     .toList();
         }
         return findFansUserRspVOS;
