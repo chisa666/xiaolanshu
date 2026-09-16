@@ -38,6 +38,7 @@ logging:
 spring.cloud.nacos.discovery.enabled: ${NACOS_DISCOVERY_ENABLED:false}
 spring.cloud.nacos.config.enabled: ${NACOS_CONFIG_ENABLED:false}
 rocketmq.name-server: ${ROCKETMQ_NAME_SERVER:127.0.0.1:9876}
+rocketmq.producer.group: ${ROCKETMQ_PRODUCER_GROUP:xiaolanshu_group}
 
 # 阿里云短信凭证：仅从运行环境读取，不写入源码。
 aliyun:
