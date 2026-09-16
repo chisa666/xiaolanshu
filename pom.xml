@@ -24,7 +24,8 @@
         <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
         <mybatis-spring-boot.version>3.0.3</mybatis-spring-boot.version>
         <satoken.version>1.37.0</satoken.version>
-        <rocketmq.version>2.3.1</rocketmq.version>
+        <rocketmq.version>2.2.3</rocketmq.version>
+        <rocketmq-client.version>4.9.4</rocketmq-client.version>
         <mybatis-generator.version>1.4.2</mybatis-generator.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <lombok.version>1.18.30</lombok.version>
@@ -50,6 +51,11 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketmq-client.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
