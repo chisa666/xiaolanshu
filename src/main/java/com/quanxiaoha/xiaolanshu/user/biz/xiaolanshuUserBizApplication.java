@@ -22,7 +22,7 @@ import org.springframework.context.annotation.ComponentScan;
 })
 @MapperScan("com.quanxiaoha.xiaolanshu.user.biz.domain.mapper")
 @EnableFeignClients(basePackages = "com.quanxiaoha.xiaolanshu")
-@ComponentScan("com.quanxiaoha.xiaolanshu.count.fallback")
+@ComponentScan({"com.quanxiaoha.xiaolanshu.user.biz", "com.quanxiaoha.xiaolanshu.count.fallback"})
 public class xiaolanshuUserBizApplication {
 
     public static void main(String[] args) {
