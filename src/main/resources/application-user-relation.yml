@@ -1,0 +1,12 @@
+server:
+  port: ${USER_RELATION_SERVER_PORT:8087}
+
+spring:
+  application:
+    name: xiaolanshu-user-relation
+  cloud:
+    nacos:
+      discovery:
+        enabled: ${NACOS_DISCOVERY_ENABLED:true}
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        group: DEFAULT_GROUP

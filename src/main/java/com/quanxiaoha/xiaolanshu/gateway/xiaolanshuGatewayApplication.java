@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class xiaolanshuGatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(xiaolanshuGatewayApplication.class, args);
+        SpringApplication application = new SpringApplication(xiaolanshuGatewayApplication.class);
+        application.setAdditionalProfiles("gateway");
+        application.run(args);
     }
 
 }

@@ -20,7 +20,9 @@ import org.springframework.cloud.gateway.config.GatewayClassPathWarningAutoConfi
 public class xiaolanshuDistributedIdGeneratorBizApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(xiaolanshuDistributedIdGeneratorBizApplication.class, args);
+        SpringApplication application = new SpringApplication(xiaolanshuDistributedIdGeneratorBizApplication.class);
+        application.setAdditionalProfiles("distributed-id-generator");
+        application.run(args);
     }
 
 }

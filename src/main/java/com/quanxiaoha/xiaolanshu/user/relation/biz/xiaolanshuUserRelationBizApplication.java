@@ -24,7 +24,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class xiaolanshuUserRelationBizApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(xiaolanshuUserRelationBizApplication.class, args);
+        SpringApplication application = new SpringApplication(xiaolanshuUserRelationBizApplication.class);
+        application.setAdditionalProfiles("user-relation");
+        application.run(args);
     }
 
 }

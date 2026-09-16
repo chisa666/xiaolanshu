@@ -28,7 +28,9 @@ import java.util.List;
 public class xiaolanshuCountBizApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(xiaolanshuCountBizApplication.class, args);
+        SpringApplication application = new SpringApplication(xiaolanshuCountBizApplication.class);
+        application.setAdditionalProfiles("count");
+        application.run(args);
 
         // 初始化限流规则
         initFlowRules();

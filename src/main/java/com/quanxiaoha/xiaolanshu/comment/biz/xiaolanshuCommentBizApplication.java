@@ -22,7 +22,9 @@ import org.springframework.cloud.gateway.config.GatewayClassPathWarningAutoConfi
 public class xiaolanshuCommentBizApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(xiaolanshuCommentBizApplication.class, args);
+        SpringApplication application = new SpringApplication(xiaolanshuCommentBizApplication.class);
+        application.setAdditionalProfiles("comment");
+        application.run(args);
     }
 
 }

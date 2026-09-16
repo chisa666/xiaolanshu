@@ -25,7 +25,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class xiaolanshuSearchApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(xiaolanshuSearchApplication.class, args);
+        SpringApplication application = new SpringApplication(xiaolanshuSearchApplication.class);
+        application.setAdditionalProfiles("search");
+        application.run(args);
     }
 
 }

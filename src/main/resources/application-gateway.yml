@@ -1,0 +1,46 @@
+server:
+  port: ${GATEWAY_SERVER_PORT:8000}
+
+spring:
+  application:
+    name: xiaolanshu-gateway
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      routes:
+        - id: auth
+          uri: lb://xiaolanshu-auth
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+        - id: user
+          uri: lb://xiaolanshu-user
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+        - id: note
+          uri: lb://xiaolanshu-note
+          predicates:
+            - Path=/note/**
+          filters:
+            - StripPrefix=1
+        - id: user-relation
+          uri: lb://xiaolanshu-user-relation
+          predicates:
+            - Path=/relation/**
+          filters:
+            - StripPrefix=1
+        - id: comment
+          uri: lb://xiaolanshu-comment
+          predicates:
+            - Path=/comment/**
+          filters:
+            - StripPrefix=1
+    nacos:
+      discovery:
+        enabled: ${NACOS_DISCOVERY_ENABLED:true}
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        group: DEFAULT_GROUP

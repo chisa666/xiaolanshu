@@ -35,7 +35,9 @@ import com.alibaba.cloud.sentinel.SentinelWebAutoConfiguration;
 public class xiaolanshuAuthApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(xiaolanshuAuthApplication.class, args);
+        SpringApplication application = new SpringApplication(xiaolanshuAuthApplication.class);
+        application.setAdditionalProfiles("auth");
+        application.run(args);
     }
 
 }

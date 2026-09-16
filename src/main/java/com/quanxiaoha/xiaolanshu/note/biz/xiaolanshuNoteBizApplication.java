@@ -26,7 +26,9 @@ import org.springframework.context.annotation.ComponentScan;
 public class xiaolanshuNoteBizApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(xiaolanshuNoteBizApplication.class, args);
+        SpringApplication application = new SpringApplication(xiaolanshuNoteBizApplication.class);
+        application.setAdditionalProfiles("note");
+        application.run(args);
     }
 
 }

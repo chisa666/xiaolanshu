@@ -22,7 +22,9 @@ import org.springframework.cloud.gateway.config.GatewayClassPathWarningAutoConfi
 public class xiaolanshuDataAlignApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(xiaolanshuDataAlignApplication.class, args);
+        SpringApplication application = new SpringApplication(xiaolanshuDataAlignApplication.class);
+        application.setAdditionalProfiles("data-align");
+        application.run(args);
     }
 
 }

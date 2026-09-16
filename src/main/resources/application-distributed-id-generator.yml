@@ -1,0 +1,12 @@
+server:
+  port: ${DISTRIBUTED_ID_SERVER_PORT:8085}
+
+spring:
+  application:
+    name: xiaolanshu-distributed-id-generator
+  cloud:
+    nacos:
+      discovery:
+        enabled: ${NACOS_DISCOVERY_ENABLED:true}
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        group: DEFAULT_GROUP

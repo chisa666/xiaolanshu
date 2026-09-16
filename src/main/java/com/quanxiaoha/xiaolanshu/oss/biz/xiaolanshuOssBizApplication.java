@@ -20,7 +20,9 @@ import org.springframework.cloud.gateway.config.GatewayClassPathWarningAutoConfi
 public class xiaolanshuOssBizApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(xiaolanshuOssBizApplication.class, args);
+        SpringApplication application = new SpringApplication(xiaolanshuOssBizApplication.class);
+        application.setAdditionalProfiles("oss");
+        application.run(args);
     }
 
 }

@@ -20,7 +20,9 @@ import org.springframework.cloud.gateway.config.GatewayClassPathWarningAutoConfi
 public class xiaolanshuKVBizApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(xiaolanshuKVBizApplication.class, args);
+        SpringApplication application = new SpringApplication(xiaolanshuKVBizApplication.class);
+        application.setAdditionalProfiles("kv");
+        application.run(args);
     }
 
 }
