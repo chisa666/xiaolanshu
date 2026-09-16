@@ -19,6 +19,7 @@ spring:
     keyspace-name: ${CASSANDRA_KEYSPACE_NAME:xiaolanshu}
     contact-points: ${CASSANDRA_CONTACT_POINTS:127.0.0.1}
     port: ${CASSANDRA_PORT:9042}
+    local-datacenter: ${CASSANDRA_LOCAL_DATACENTER:datacenter1}
   sql:
     init:
       mode: never
