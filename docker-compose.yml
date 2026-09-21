@@ -6,7 +6,7 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - xiaolanshu-redis-data:/data
+      - ${XIAOLANSHU_DATA_DIR:-D:/Environment/xiaolanshu/docker}/redis:/data
 
   rocketmq-namesrv:
     image: apache/rocketmq:5.3.2
@@ -14,6 +14,8 @@ services:
     command: sh mqnamesrv
     ports:
       - "9876:9876"
+    volumes:
+      - ${XIAOLANSHU_DATA_DIR:-D:/Environment/xiaolanshu/docker}/rocketmq/namesrv-logs:/home/rocketmq/logs
 
   rocketmq-broker:
     image: apache/rocketmq:5.3.2
@@ -27,6 +29,9 @@ services:
       - "10909:10909"
       - "10911:10911"
       - "10912:10912"
+    volumes:
+      - ${XIAOLANSHU_DATA_DIR:-D:/Environment/xiaolanshu/docker}/rocketmq/broker-logs:/home/rocketmq/logs
+      - ${XIAOLANSHU_DATA_DIR:-D:/Environment/xiaolanshu/docker}/rocketmq/store:/home/rocketmq/store
 
   rocketmq-dashboard:
     image: apacherocketmq/rocketmq-dashboard:2.0.0
@@ -36,7 +41,4 @@ services:
     environment:
       JAVA_OPTS: -Drocketmq.namesrv.addr=rocketmq-namesrv:9876
     ports:
-      - "8081:8080"
-
-volumes:
-  xiaolanshu-redis-data:
+      - "18081:8080"
