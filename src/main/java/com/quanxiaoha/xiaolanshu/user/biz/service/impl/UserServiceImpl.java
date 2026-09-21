@@ -151,7 +151,7 @@ public class UserServiceImpl implements UserService {
             needUpdate = true;
         }
 
-        // 小哈书号
+        // 小蓝书号
         String xiaolanshuId = updateUserInfoReqVO.getXiaolanshuId();
         if (StringUtils.isNotBlank(xiaolanshuId)) {
             Preconditions.checkArgument(ParamUtils.checkXiaolanshuId(xiaolanshuId), ResponseCodeEnum.XIAOLANSHU_ID_VALID_FAIL.getErrorMessage());
@@ -275,10 +275,10 @@ public class UserServiceImpl implements UserService {
         }
 
         // 否则注册新用户
-        // 获取全局自增的小哈书 ID
+        // 获取全局自增的小蓝书 ID
         //Long xiaolanshuId = redisTemplate.opsForValue().increment(RedisKeyConstants.XIAOHASHU_ID_GENERATOR_KEY);
 
-        // RPC: 调用分布式 ID 生成服务生成小哈书 ID
+        // RPC: 调用分布式 ID 生成服务生成小蓝书 ID
         String xiaolanshuId = distributedIdGeneratorRpcService.getXiaolanshuId();
 
         //RPC: 调用分布式 ID 生成服务生成用户  ID

@@ -37,7 +37,7 @@ public class SearchUserRspVO {
     private String avatar;
 
     /**
-     * 小哈书ID
+     * 小蓝书ID
      */
     private String xiaolanshuId;
 

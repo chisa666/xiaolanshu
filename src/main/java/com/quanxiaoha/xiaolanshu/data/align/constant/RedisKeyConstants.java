@@ -3,7 +3,7 @@ package com.quanxiaoha.xiaolanshu.data.align.constant;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 数据对齐服务 Redis Key 常量
  **/
 public class RedisKeyConstants {
 

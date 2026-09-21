@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 搜索服务 Feign 接口
  **/
 @FeignClient(name = ApiConstants.SERVICE_NAME)
 public interface SearchFeignApi {

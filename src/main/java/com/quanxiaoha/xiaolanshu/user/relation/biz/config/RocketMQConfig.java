@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: RocketMQ 自动配置
  **/
 @Configuration
 @Import(RocketMQAutoConfiguration.class)

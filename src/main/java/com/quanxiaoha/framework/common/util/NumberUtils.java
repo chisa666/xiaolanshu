@@ -5,7 +5,6 @@ import java.text.DecimalFormat;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 数字工具类
  **/
 public class NumberUtils {

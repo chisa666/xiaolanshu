@@ -7,7 +7,6 @@ import java.util.Objects;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 笔记取消收藏：执行 Lua 脚本返回结果
  **/
 @Getter

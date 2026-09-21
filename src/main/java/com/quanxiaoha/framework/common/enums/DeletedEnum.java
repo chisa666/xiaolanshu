@@ -5,7 +5,6 @@ import lombok.Getter;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 逻辑删除
  **/
 @Getter

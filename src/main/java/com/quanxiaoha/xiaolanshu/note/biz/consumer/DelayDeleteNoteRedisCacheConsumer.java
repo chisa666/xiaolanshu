@@ -15,7 +15,6 @@ import java.util.List;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 延时删除 Redis 笔记缓存
  **/
 @Component

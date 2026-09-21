@@ -3,7 +3,7 @@ package com.quanxiaoha.xiaolanshu.note.biz.constant;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 笔记服务 Redis Key 常量
  **/
 public class RedisKeyConstants {
 

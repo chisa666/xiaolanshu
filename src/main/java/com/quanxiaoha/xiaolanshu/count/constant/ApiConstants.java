@@ -3,7 +3,7 @@ package com.quanxiaoha.xiaolanshu.count.constant;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 计数服务 API 常量
  **/
 public interface ApiConstants {
 

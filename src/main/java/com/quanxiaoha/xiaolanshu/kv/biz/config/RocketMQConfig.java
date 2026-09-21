@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Import;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: RocketMQ 配置
  **/
 @Configuration

@@ -9,7 +9,6 @@ import org.springframework.retry.support.RetryTemplate;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: Spring Retry 重试配置
  **/
 @Configuration

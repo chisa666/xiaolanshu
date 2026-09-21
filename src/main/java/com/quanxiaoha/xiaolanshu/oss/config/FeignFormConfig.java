@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: Feign 表单编码配置
  **/
 @Configuration
 public class FeignFormConfig {

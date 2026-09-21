@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 用户认证接口
  **/
 @RestController
 @RequestMapping("/user")

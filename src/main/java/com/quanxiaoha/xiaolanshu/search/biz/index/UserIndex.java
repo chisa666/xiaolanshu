@@ -28,7 +28,7 @@ public class UserIndex {
     public static final String FIELD_USER_AVATAR = "avatar";
 
     /**
-     * 小哈书ID
+     * 小蓝书ID
      */
     public static final String FIELD_USER_xiaolanshu_ID = "xiaolanshu_id";
 

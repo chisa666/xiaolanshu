@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 延时删除 Redis 已发布笔记列表缓存
  **/
 @Component

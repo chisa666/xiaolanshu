@@ -6,7 +6,6 @@ import lombok.Getter;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 响应异常码
  **/
 @Getter

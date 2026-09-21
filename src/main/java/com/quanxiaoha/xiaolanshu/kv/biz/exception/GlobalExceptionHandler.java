@@ -15,7 +15,6 @@ import java.util.Optional;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 全局异常处理
  **/
 @ControllerAdvice

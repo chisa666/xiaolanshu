@@ -4,7 +4,6 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 日期全局常量
  **/
 public interface DateConstants {

@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 阿里云 Client 配置
  **/
 @Configuration

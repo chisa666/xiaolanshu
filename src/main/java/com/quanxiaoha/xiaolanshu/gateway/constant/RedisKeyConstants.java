@@ -3,7 +3,7 @@ package com.quanxiaoha.xiaolanshu.gateway.constant;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 网关 Redis Key 常量
  **/
 public class RedisKeyConstants {
 

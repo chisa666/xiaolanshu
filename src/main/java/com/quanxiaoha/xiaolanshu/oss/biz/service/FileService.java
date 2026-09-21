@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 文件服务
  **/
 public interface FileService {
 

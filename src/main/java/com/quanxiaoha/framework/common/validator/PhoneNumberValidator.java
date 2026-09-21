@@ -6,7 +6,7 @@ import jakarta.validation.ConstraintValidatorContext;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 手机号格式校验器
  **/
 public class PhoneNumberValidator implements ConstraintValidator<PhoneNumber, String> {
 

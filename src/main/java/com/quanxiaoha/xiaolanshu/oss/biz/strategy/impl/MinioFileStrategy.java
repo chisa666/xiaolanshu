@@ -14,7 +14,7 @@ import java.util.UUID;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: MinIO 文件存储策略
  **/
 @Slf4j
 public class MinioFileStrategy implements FileStrategy  {

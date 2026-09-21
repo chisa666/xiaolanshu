@@ -3,7 +3,7 @@ package com.quanxiaoha.xiaolanshu.auth.constant;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 认证服务 Redis Key 常量
  **/
 public class RedisKeyConstants {
 

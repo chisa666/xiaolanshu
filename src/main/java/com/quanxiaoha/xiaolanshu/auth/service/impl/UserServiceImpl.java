@@ -114,7 +114,7 @@ public class UserServiceImpl implements UserService {
      */
     @Transactional(rollbackFor = Exception.class)
     public Long registerUser(String phone) {
-        // 获取全局自增的小哈书 ID
+        // 获取全局自增的小蓝书 ID
         Long xiaolanshuId = redisTemplate.opsForValue().increment(RedisKeyConstants.xiaolanshu_ID_GENERATOR_KEY);
 
         UserDO userDO = UserDO.builder()

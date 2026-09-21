@@ -245,7 +245,7 @@ CREATE TABLE `t_user_role_rel` (
 
 CREATE TABLE `t_user` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `xiaolanshu_id` varchar(15) NOT NULL COMMENT '小哈书号(唯一凭证)',
+  `xiaolanshu_id` varchar(15) NOT NULL COMMENT '小蓝书号(唯一凭证)',
   `password` varchar(64) DEFAULT NULL COMMENT '密码',
   `nickname` varchar(24) NOT NULL COMMENT '昵称',
   `avatar` varchar(120) DEFAULT NULL COMMENT '头像',

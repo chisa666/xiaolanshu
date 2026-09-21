@@ -30,7 +30,6 @@ import java.util.Set;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 删除评论 - 后续业务处理
  **/
 @Component

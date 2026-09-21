@@ -7,7 +7,7 @@ import com.quanxiaoha.xiaolanshu.auth.model.vo.user.UserLoginReqVO;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 用户认证服务
  **/
 public interface UserService {
 

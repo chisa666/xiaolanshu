@@ -3,7 +3,7 @@ package com.quanxiaoha.xiaolanshu.oss.constant;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 对象存储服务 API 常量
  **/
 public interface ApiConstants {
 

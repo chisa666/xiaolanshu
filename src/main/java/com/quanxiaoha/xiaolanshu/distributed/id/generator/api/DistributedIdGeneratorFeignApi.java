@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 分布式 ID 服务 Feign 接口
  **/
 @FeignClient(name = ApiConstants.SERVICE_NAME)
 public interface DistributedIdGeneratorFeignApi {

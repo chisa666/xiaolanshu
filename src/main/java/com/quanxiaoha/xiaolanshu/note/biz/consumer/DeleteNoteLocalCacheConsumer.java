@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 删除本地笔记缓存
  **/
 @Component

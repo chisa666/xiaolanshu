@@ -8,8 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
- * @description: TODO
+ * @description: MinIO 客户端配置
  **/
 @Configuration
 @ConditionalOnProperty(prefix = "storage.minio", name = "enabled", havingValue = "true")

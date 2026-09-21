@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: Minio 配置项
  **/
 @ConfigurationProperties(prefix = "storage.minio")

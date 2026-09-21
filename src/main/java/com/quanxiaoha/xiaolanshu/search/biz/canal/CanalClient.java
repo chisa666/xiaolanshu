@@ -15,7 +15,7 @@ import java.util.Objects;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: Canal 客户端配置
  **/
 @Component
 @Slf4j

@@ -5,7 +5,6 @@ import lombok.Getter;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 评论级别
  **/
 @Getter

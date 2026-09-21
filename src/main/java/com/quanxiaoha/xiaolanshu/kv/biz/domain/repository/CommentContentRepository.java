@@ -10,7 +10,7 @@ import java.util.UUID;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 评论内容 Cassandra 仓储
  **/
 public interface CommentContentRepository extends CassandraRepository<CommentContentDO, CommentContentPrimaryKey> {
 

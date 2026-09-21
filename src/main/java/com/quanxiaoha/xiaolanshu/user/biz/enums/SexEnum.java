@@ -7,7 +7,6 @@ import java.util.Objects;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 性别
  **/
 @Getter

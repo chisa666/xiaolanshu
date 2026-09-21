@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * @author: chisa
- * @url: www.quanxiaoha.com
  * @description: 分页响应参数工具类
  **/
 @Data

@@ -3,7 +3,7 @@ package com.quanxiaoha.xiaolanshu.user.biz.constant;
 /**
  * @author: chisa
  * @version: v1.0.0
- * @description: TODO
+ * @description: 用户服务 MQ 常量
  **/
 public interface MQConstants {
 
