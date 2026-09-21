@@ -29,11 +29,11 @@
         <mybatis-generator.version>1.4.2</mybatis-generator.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <lombok.version>1.18.30</lombok.version>
-        <elasticsearch.version>7.17.18</elasticsearch.version>
+        <elasticsearch.version>7.3.0</elasticsearch.version>
         <buffertrigger.version>0.2.21</buffertrigger.version>
         <canal.version>1.1.7</canal.version>
         <curator.version>5.5.0</curator.version>
-        <zookeeper.version>3.8.4</zookeeper.version>
+        <zookeeper.version>3.5.6</zookeeper.version>
     </properties>
 
     <dependencyManagement>
